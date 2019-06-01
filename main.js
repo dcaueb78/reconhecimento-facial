@@ -91,8 +91,12 @@ function processImage() {
                     break;
             }
 
+            // if(dados[0]){
+
+            // }
+
             console.log(emotionHigher);
-            document.querySelector("#result").innerText = "Um"+genero+" de " + dados[0].faceAttributes.age + " anos, com uma expressão facial "+emotionHigher ;
+            document.querySelector("#result").innerText = "Um"+genero+" de " + dados[0].faceAttributes.age + " anos, com uma expressão facial "+emotionHigher+".";
         })
 
         .fail(function (jqXHR, textStatus, errorThrown) {
