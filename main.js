@@ -116,7 +116,7 @@ function processImage() {
                 texto += " Possui grandes costeletas.";
             }
 
-            if(dados[0].faceAttributes.hair.invisible == "false"){
+            if(dados[0].faceAttributes.hair.invisible == false){
                 var hairNumber = -1;
                 var hairHigher;
                 for(var hair in dados[0].faceAttributes.hair.hairColor) {
@@ -128,22 +128,22 @@ function processImage() {
                 var hairColor = dados[0].faceAttributes.hair.hairColor[hairHigher].color;
 
                 switch (hairColor){
-                    case 'Brown': 
+                    case 'brown': 
                         hairColor = "Marrom";
                         break;
-                    case 'Grey': 
+                    case 'gray': 
                         hairColor = "Cinza";
                         break;
-                    case 'Black': 
+                    case 'black': 
                         hairColor = "Preto";
                         break;
-                    case 'Blond': 
+                    case 'blond': 
                         hairColor = "Loiro";
                         break;
-                    case 'Red': 
+                    case 'red': 
                         hairColor = "Ruivo";
                         break;
-                    case 'Other': 
+                    case 'other': 
                         hairColor = "Não identificada.";
                         break;
                 }
