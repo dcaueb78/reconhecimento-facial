@@ -113,7 +113,7 @@ function processImage() {
             if(dados[0].faceAttributes.facialHair.sideburns>0 && dados[0].faceAttributes.facialHair.sideburns<0.51){
                 texto += " Possui pequenas costeletas.";
             } else if(dados[0].faceAttributes.facialHair.sideburns>0.51){
-                texto += " Possui grandes barba.";
+                texto += " Possui grandes costeletas.";
             }
 
             if(dados[0].faceAttributes.hair.invisible == "false"){
@@ -161,11 +161,11 @@ function processImage() {
                 texto += " Está usando "+oculos+".";
             }
 
-            if(dados[0].faceAttributes.makeup.eyeMakeup =="true" && dados[0].faceAttributes.makeup.lipMakeup =="true"){
+            if(dados[0].faceAttributes.makeup.eyeMakeup ==true && dados[0].faceAttributes.makeup.lipMakeup ==true){
                 texto += " Foram passadas maquiagens nos olhos e nos lábios.";
-            } else if(dados[0].faceAttributes.makeup.eyeMakeup =="true"){
+            } else if(dados[0].faceAttributes.makeup.eyeMakeup ==true){
                 texto += " Foi passada maquiagem nos olhos.";
-            } else if(dados[0].faceAttributes.makeup.lipMakeup =="true"){
+            } else if(dados[0].faceAttributes.makeup.lipMakeup ==true){
                 texto += " Foi passada maquiagem nos lábios.";
             }
 
