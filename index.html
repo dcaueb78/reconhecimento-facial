@@ -5,34 +5,53 @@
     <title>Detector Facial</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <style>
+            #nunito{
+                color: #636b6f;
+                font-family: 'Nunito Sans', sans-serif;
+                font-weight: lighter;
+                font-size: 80px;
+            }
+            </style>
 </head>
 
 <body>
-
-    <h1>Detector Facial:</h1>
-    Cole a URl de uma imagem que inclua um rosto ou rostos, e clique
-    no botão de <strong>Analisar rosto</strong>.<br><br>
-    Imagem para Analisar: <input type="text" name="inputImage" id="inputImage"
-        value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-    <button onclick="processImage()">Analisar Rosto</button><br><br>
-    <div id="wrapper" style="width:1020px; display:table;">
-        <div id="jsonOutput" style="width:600px; display:table-cell;">
-            Response Json:<br><br>
-            <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
-        </div>
-        <div id="imageDiv" style="width:420px; display:table-cell;">
-            Source image:<br><br>
-            <div>
-                <img id="sourceImage" width="400" />
+    <div class="uk-container uk-container-large uk-text-center">
+        <p id="nunito" class=" uk-text-center">Detector Facial:</p>
+        Cole a URl de uma imagem que inclua um rosto ou rostos, e clique
+        no botão de <strong>Analisar rosto</strong>.<br><br>
+        Imagem para Analisar: <input type="text" name="inputImage" id="inputImage"
+            value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+        <button onclick="processImage()">Analisar Rosto</button><br><br>
+        <div id="wrapper" style="width:1020px; display:table;">
+            <div id="jsonOutput" style="width:600px; display:table-cell;">
+                Response Json:<br><br>
+                <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
             </div>
-        </div>
+            <div id="imageDiv" style="width:420px; display:table-cell;">
+                Source image:<br><br>
+                <div>
+                    <img id="sourceImage" width="400" />
+                </div>
+            </div>
 
+        </div>
+        <div>
+            <h1 id="result"></h1>
+        </div>
     </div>
-    <div>
-        <h1 id="result"></h1>
-    </div>
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js"></script>
 
     <script src="main.js"></script>
+
 
 </body>
 

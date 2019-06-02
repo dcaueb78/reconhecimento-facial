@@ -96,7 +96,80 @@ function processImage() {
             // }
 
             console.log(emotionHigher);
-            document.querySelector("#result").innerText = "Um"+genero+" de " + dados[0].faceAttributes.age + " anos, com uma expressão facial "+emotionHigher+".";
+            var texto = "Um"+genero+" de aproximadamente " + dados[0].faceAttributes.age + " anos, com uma expressão facial "+emotionHigher+".";
+
+            if(dados[0].faceAttributes.facialHair.moustache>0 && dados[0].faceAttributes.facialHair.moustache<0.51){
+                texto += " Possui um pequeno bigode.";
+            } else if(dados[0].faceAttributes.facialHair.moustache>0.51){
+                texto += " Possui um grande bigode.";
+            }
+
+            if(dados[0].faceAttributes.facialHair.beard>0 && dados[0].faceAttributes.facialHair.beard<0.51){
+                texto += " Apresenta uma pequena barba.";
+            } else if(dados[0].faceAttributes.facialHair.beard>0.51){
+                texto += " Apresenta uma grande barba.";
+            }
+
+            if(dados[0].faceAttributes.facialHair.sideburns>0 && dados[0].faceAttributes.facialHair.sideburns<0.51){
+                texto += " Possui pequenas costeletas.";
+            } else if(dados[0].faceAttributes.facialHair.sideburns>0.51){
+                texto += " Possui grandes barba.";
+            }
+
+            if(dados[0].faceAttributes.hair.invisible == "false"){
+                var hairNumber = -1;
+                var hairHigher;
+                for(var hair in dados[0].faceAttributes.hair.hairColor) {
+                    if(dados[0].faceAttributes.hair.hairColor[hair].confidence > hairNumber){
+                        hairNumber = dados[0].faceAttributes.hair.hairColor[hair].confidence;
+                        hairHigher = hair;
+                    }
+                }
+                var hairColor = dados[0].faceAttributes.hair.hairColor[hairHigher].color;
+
+                switch (hairColor){
+                    case 'Brown': 
+                        hairColor = "Marrom";
+                        break;
+                    case 'Grey': 
+                        hairColor = "Cinza";
+                        break;
+                    case 'Black': 
+                        hairColor = "Preto";
+                        break;
+                    case 'Blond': 
+                        hairColor = "Loiro";
+                        break;
+                    case 'Red': 
+                        hairColor = "Ruivo";
+                        break;
+                    case 'Other': 
+                        hairColor = "Não identificada.";
+                        break;
+                }
+
+                texto += " Seu cabelo é "+hairColor+".";
+            }
+
+
+            if(dados[0].faceAttributes.glasses != "NoGlasses"){
+                if(dados[0].faceAttributes.glasses == "ReadingGlasses"){
+                    var oculos = "Óculos de Grau"
+                } else if(dados[0].faceAttributes.glasses == "Sunglasses"){
+                    var oculos = "Óculos de Sol"
+                }
+                texto += " Está usando "+oculos+".";
+            }
+
+            if(dados[0].faceAttributes.makeup.eyeMakeup =="true" && dados[0].faceAttributes.makeup.lipMakeup =="true"){
+                texto += " Foram passadas maquiagens nos olhos e nos lábios.";
+            } else if(dados[0].faceAttributes.makeup.eyeMakeup =="true"){
+                texto += " Foi passada maquiagem nos olhos.";
+            } else if(dados[0].faceAttributes.makeup.lipMakeup =="true"){
+                texto += " Foi passada maquiagem nos lábios.";
+            }
+
+            document.querySelector("#result").innerText = texto;
         })
 
         .fail(function (jqXHR, textStatus, errorThrown) {
